@@ -35,6 +35,10 @@ export class RecipeService {
         return this.recipes.slice(); // slice method without arguments creates a copy when accessed from other components (JS lists are references!)
     }
 
+    getRecipe(index: number) {
+        return this.recipes[index];
+    }
+
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.shoppingListService.addIngredients(ingredients);
     }
