@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Subject, throwError } from "rxjs";
+import { BehaviorSubject, Subject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { apiKey } from "src/ApiKey"
 import { User } from "./user.model";
@@ -18,7 +18,9 @@ export interface AuthResponseData {
 export class AuthService {
 
     private key = apiKey.key;
-    user = new Subject<User>;
+    // user = new Subject<User>; // We can subscribe and get information when new data is added
+    user = new BehaviorSubject<User>(null); // gives access to previous emited value even if not currently subscrived
+
     
     constructor(private http : HttpClient) {}
     
