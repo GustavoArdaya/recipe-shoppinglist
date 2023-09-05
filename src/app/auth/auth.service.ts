@@ -4,6 +4,7 @@ import { BehaviorSubject, Subject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { apiKey } from "src/ApiKey"
 import { User } from "./user.model";
+import { Router } from "@angular/router";
 
 export interface AuthResponseData {
     idToken: string,
@@ -22,7 +23,9 @@ export class AuthService {
     user = new BehaviorSubject<User>(null); // gives access to previous emited value even if not currently subscrived
 
     
-    constructor(private http : HttpClient) {}
+    constructor(
+        private http : HttpClient,
+        private router: Router) {}
     
     signup(newEmail: string, newPassword: string) {
         return this.http
@@ -63,6 +66,8 @@ export class AuthService {
 
     logout() {
         this.user.next(null);
+        this.router.navigate(['/auth']);
+
     }
 
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
