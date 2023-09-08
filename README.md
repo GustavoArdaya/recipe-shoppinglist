@@ -1,5 +1,11 @@
 # CourseProject
 
+Small app to manage recipes and its shopping list. Made with Angular as an Academic project for Max Schwartzmüller's "Angular - The Complete Guide" course in Udemy.
+
+Deployed server:
+https://recipe-book-3f843.web.app/
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
 ## Development server
