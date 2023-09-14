@@ -27,6 +27,7 @@ export class ShoppingListService {
         // for (let ingredient of ingredients) {
         //     this.addIngredient(ingredient);
         // }
+        console.log(ingredients);
         this.ingredients.push(...ingredients);
         this.ingredientsChanged.next(this.ingredients.slice());
     }
